@@ -1,0 +1,15 @@
+services:
+  db:
+    image: ${DB_TYPE}:${DB_VERSION}
+    restart: always
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    ports:
+      - '5432:5432'
+    volumes:
+      - db:${DB_VOLUME_PATH}
+volumes:
+  db:
+    driver: local

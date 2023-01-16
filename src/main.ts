@@ -13,8 +13,8 @@ async function bootstrap() {
    * add Swagger documentation for endpoints
    */
   const options = new DocumentBuilder()
-    .setTitle('Distilled Paths API')
-    .setDescription('REST API for Distilled Paths application')
+    .setTitle('Latt REST API')
+    .setDescription('REST API for Latt application')
     .setVersion('1.0')
     .addTag('paths')
     .addBearerAuth()
@@ -28,6 +28,6 @@ async function bootstrap() {
 
   await app.listen(process.env.PORT || 3000);
 
-  Logger.log(`Distilled Paths API Server is running on http://localhost:${port}`, 'App Bootstrap');
+  Logger.log(`Latt API Server is running on http://localhost:${port}`, 'App Bootstrap');
 }
 bootstrap();
