@@ -26,8 +26,9 @@ import { QuestionModule } from './question/question.module';
         password: configService.get('DB_PASSWORD'),
         database: configService.get('DB_NAME'),
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
+        // TODO: replace with migrations https://typeorm.io/migrations
         synchronize: true,
-        // TODO: check the problem with ssl
+        // TODO: check the problem with ssl https://node-postgres.com/features/ssl
         // ssl: true,
         // extra: {
         //   ssl: {

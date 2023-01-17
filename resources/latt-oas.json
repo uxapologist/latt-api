@@ -1,0 +1,1180 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/users": {
+      "get": {
+        "operationId": "UserController_getUsers",
+        "summary": "Get list of users",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The list of Latt app users"
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/users/signin": {
+      "post": {
+        "operationId": "UserController_logIn",
+        "summary": "Sign existing user in",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Is the user signed in successfully"
+          },
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRo"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "/users/signup": {
+      "post": {
+        "operationId": "UserController_signUp",
+        "summary": "Sign new user up",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Is the user signed up successfully"
+          },
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRo"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "/users/{userId}": {
+      "delete": {
+        "operationId": "UserController_deletePath",
+        "summary": "Delete specific user",
+        "parameters": [
+          {
+            "name": "userId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Is the specified user deleted successfully"
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/paths": {
+      "get": {
+        "operationId": "PathController_getPaths",
+        "summary": "Get available learning paths",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The list of available learning paths with corresponding courses"
+          }
+        },
+        "tags": [
+          "paths"
+        ]
+      },
+      "post": {
+        "operationId": "PathController_createPath",
+        "summary": "Create a learning path",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PathDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The learning path with corresponding courses"
+          },
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PathEntity"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "paths"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/paths/{pathId}": {
+      "get": {
+        "operationId": "PathController_getPath",
+        "summary": "Get specific learning path data by its id",
+        "parameters": [
+          {
+            "name": "pathId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The learning path with corresponding courses"
+          }
+        },
+        "tags": [
+          "paths"
+        ]
+      },
+      "patch": {
+        "operationId": "PathController_updatePath",
+        "summary": "Update specific learning path data",
+        "parameters": [
+          {
+            "name": "pathId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PathDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The learning path with corresponding courses"
+          }
+        },
+        "tags": [
+          "paths"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "PathController_deletePath",
+        "summary": "Delete specific learning path",
+        "parameters": [
+          {
+            "name": "pathId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Is the specified learning path deleted successfully"
+          }
+        },
+        "tags": [
+          "paths"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/courses": {
+      "get": {
+        "operationId": "CourseController_getCourses",
+        "summary": "Get available learning courses",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The list of available learning courses with corresponding data (articles, labs, questions)"
+          }
+        },
+        "tags": [
+          "courses"
+        ]
+      },
+      "post": {
+        "operationId": "CourseController_createCourse",
+        "summary": "Create a learning course",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CourseDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The learning course with corresponding data (articles, labs, questions)"
+          },
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CourseEntity"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "courses"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/courses/{courseId}": {
+      "get": {
+        "operationId": "CourseController_getCourse",
+        "summary": "Get specific learning course data by its id",
+        "parameters": [
+          {
+            "name": "courseId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The learning course with corresponding data (articles, labs, questions)"
+          }
+        },
+        "tags": [
+          "courses"
+        ]
+      },
+      "patch": {
+        "operationId": "CourseController_updateCourse",
+        "summary": "Update specific learning course data",
+        "parameters": [
+          {
+            "name": "courseId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CourseDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The learning course with corresponding data (articles, labs, questions)"
+          }
+        },
+        "tags": [
+          "courses"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "CourseController_deleteCourse",
+        "summary": "Delete specific learning course",
+        "parameters": [
+          {
+            "name": "courseId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Is the specified learning course deleted successfully"
+          }
+        },
+        "tags": [
+          "courses"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/articles": {
+      "get": {
+        "operationId": "ArticleController_getArticles",
+        "summary": "Get available articles",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The list of available articles"
+          }
+        },
+        "tags": [
+          "articles"
+        ]
+      },
+      "post": {
+        "operationId": "ArticleController_createArticle",
+        "summary": "Create an article",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArticleDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The article data"
+          },
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArticleEntity"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "articles"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/articles/{articleId}": {
+      "get": {
+        "operationId": "ArticleController_getArticle",
+        "summary": "Get specific article data by its id",
+        "parameters": [
+          {
+            "name": "articleId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The article data"
+          }
+        },
+        "tags": [
+          "articles"
+        ]
+      },
+      "patch": {
+        "operationId": "ArticleController_updateArticle",
+        "summary": "Update specific article data",
+        "parameters": [
+          {
+            "name": "articleId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArticleDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The article data"
+          }
+        },
+        "tags": [
+          "articles"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "ArticleController_deleteArticle",
+        "summary": "Delete specific article",
+        "parameters": [
+          {
+            "name": "articleId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Is the specified article deleted successfully"
+          }
+        },
+        "tags": [
+          "articles"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/labs": {
+      "get": {
+        "operationId": "LabController_getLabs",
+        "summary": "Get available labs",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The list of available labs"
+          }
+        },
+        "tags": [
+          "labs"
+        ]
+      },
+      "post": {
+        "operationId": "LabController_createLab",
+        "summary": "Create a lab",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LabDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The lab data"
+          },
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LabEntity"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "labs"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/labs/{labId}": {
+      "get": {
+        "operationId": "LabController_getLab",
+        "summary": "Get specific lab data by its id",
+        "parameters": [
+          {
+            "name": "labId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The lab data"
+          }
+        },
+        "tags": [
+          "labs"
+        ]
+      },
+      "patch": {
+        "operationId": "LabController_updateLab",
+        "summary": "Update specific lab data",
+        "parameters": [
+          {
+            "name": "labId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LabDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The lab data"
+          }
+        },
+        "tags": [
+          "labs"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "LabController_deleteLab",
+        "summary": "Delete specific lab",
+        "parameters": [
+          {
+            "name": "labId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Is the specified lab deleted successfully"
+          }
+        },
+        "tags": [
+          "labs"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/questions": {
+      "get": {
+        "operationId": "QuestionController_getQuestions",
+        "summary": "Get available skill test questions",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The list of available skill test questions"
+          }
+        },
+        "tags": [
+          "questions"
+        ]
+      },
+      "post": {
+        "operationId": "QuestionController_createQuestion",
+        "summary": "Create a skill test question",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuestionDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The skill test question"
+          },
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuestionEntity"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "questions"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/questions/{questionId}": {
+      "get": {
+        "operationId": "QuestionController_getQuestion",
+        "summary": "Get specific skill test question data by its id",
+        "parameters": [
+          {
+            "name": "questionId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The skill test question"
+          }
+        },
+        "tags": [
+          "questions"
+        ]
+      },
+      "patch": {
+        "operationId": "QuestionController_updateQuestion",
+        "summary": "Update specific skill test question data",
+        "parameters": [
+          {
+            "name": "questionId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuestionDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The skill test question"
+          }
+        },
+        "tags": [
+          "questions"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "QuestionController_deleteQuestion",
+        "summary": "Delete specific skill test question",
+        "parameters": [
+          {
+            "name": "questionId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Is the specified skill test question deleted successfully"
+          }
+        },
+        "tags": [
+          "questions"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Latt REST API",
+    "description": "REST API for Latt application",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [
+    {
+      "name": "paths",
+      "description": ""
+    }
+  ],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http"
+      }
+    },
+    "schemas": {
+      "UserDto": {
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "userName",
+          "password"
+        ]
+      },
+      "UserRo": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "userName": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "userId",
+          "userName"
+        ]
+      },
+      "QuestionEntity": {
+        "type": "object",
+        "properties": {
+          "questionId": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "answer": {
+            "enum": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "type": "string"
+          },
+          "course": {
+            "$ref": "#/components/schemas/CourseEntity"
+          }
+        },
+        "required": [
+          "questionId",
+          "text",
+          "options",
+          "answer",
+          "course"
+        ]
+      },
+      "ArticleEntity": {
+        "type": "object",
+        "properties": {
+          "articleId": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "duration": {
+            "type": "string"
+          },
+          "course": {
+            "$ref": "#/components/schemas/CourseEntity"
+          }
+        },
+        "required": [
+          "articleId",
+          "url",
+          "name",
+          "description",
+          "duration",
+          "course"
+        ]
+      },
+      "LabEntity": {
+        "type": "object",
+        "properties": {
+          "labId": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "duration": {
+            "type": "string"
+          },
+          "course": {
+            "$ref": "#/components/schemas/CourseEntity"
+          }
+        },
+        "required": [
+          "labId",
+          "url",
+          "name",
+          "description",
+          "duration",
+          "course"
+        ]
+      },
+      "CourseEntity": {
+        "type": "object",
+        "properties": {
+          "courseId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "objective": {
+            "type": "string"
+          },
+          "questions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QuestionEntity"
+            }
+          },
+          "articles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ArticleEntity"
+            }
+          },
+          "labs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LabEntity"
+            }
+          }
+        },
+        "required": [
+          "courseId",
+          "name",
+          "icon",
+          "objective",
+          "questions",
+          "articles",
+          "labs"
+        ]
+      },
+      "PathDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "courses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CourseEntity"
+            }
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "PathEntity": {
+        "type": "object",
+        "properties": {
+          "pathId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "courses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CourseEntity"
+            }
+          }
+        },
+        "required": [
+          "pathId",
+          "name",
+          "icon",
+          "courses"
+        ]
+      },
+      "CourseDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "objective": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "ArticleDto": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "duration": {
+            "type": "string"
+          },
+          "course": {
+            "$ref": "#/components/schemas/CourseEntity"
+          }
+        },
+        "required": [
+          "url",
+          "name",
+          "description",
+          "duration",
+          "course"
+        ]
+      },
+      "LabDto": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "duration": {
+            "type": "string"
+          },
+          "course": {
+            "$ref": "#/components/schemas/CourseEntity"
+          }
+        },
+        "required": [
+          "url",
+          "name",
+          "description",
+          "duration",
+          "course"
+        ]
+      },
+      "QuestionDto": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "answer": {
+            "enum": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "type": "string"
+          },
+          "course": {
+            "$ref": "#/components/schemas/CourseEntity"
+          }
+        },
+        "required": [
+          "text",
+          "options",
+          "answer",
+          "course"
+        ]
+      }
+    }
+  }
+}
