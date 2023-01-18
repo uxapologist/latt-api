@@ -6,7 +6,7 @@ import { stringify } from 'yaml';
 
 import { AppModule } from './app.module';
 
-const port = process.env.PORT || 3000;
+const port = process.env.LATT_PORT || 3000;
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -20,6 +20,7 @@ async function bootstrap() {
     .setVersion('1.0')
     .addTag('paths')
     .addBearerAuth()
+    .addServer(`http://localhost:${port}`)
     .build();
 
   const document: OpenAPIObject = SwaggerModule.createDocument(app, options);
@@ -35,7 +36,7 @@ async function bootstrap() {
   // TODO disable or limit allowed origins eventually https://docs.nestjs.com/security/cors
   app.enableCors();
 
-  await app.listen(process.env.PORT || 3000);
+  await app.listen(port);
 
   Logger.log(`Latt API Server is running on http://localhost:${port}`, 'App Bootstrap');
 }

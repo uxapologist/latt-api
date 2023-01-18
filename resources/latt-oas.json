@@ -838,7 +838,11 @@
       "description": ""
     }
   ],
-  "servers": [],
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
   "components": {
     "securitySchemes": {
       "bearer": {
