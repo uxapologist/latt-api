@@ -15,9 +15,9 @@ async function bootstrap() {
    * Adding Swagger documentation for endpoints
    */
   const options = new DocumentBuilder()
-    .setTitle('Latt REST API')
-    .setDescription('REST API for Latt application')
-    .setVersion('1.0')
+    .setTitle('Latt API')
+    .setDescription('API docs for Latt application')
+    .setVersion('0.1.0')
     .addTag('paths')
     .addBearerAuth()
     .addServer(`http://localhost:${port}`)

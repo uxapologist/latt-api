@@ -827,9 +827,9 @@
     }
   },
   "info": {
-    "title": "Latt REST API",
-    "description": "REST API for Latt application",
-    "version": "1.0",
+    "title": "Latt API",
+    "description": "API docs for Latt application",
+    "version": "0.1.0",
     "contact": {}
   },
   "tags": [

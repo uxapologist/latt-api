@@ -1,7 +1,7 @@
 {
   "name": "latt-api",
-  "version": "1.0.0",
-  "description": "REST API for Latt platform",
+  "version": "0.1.0",
+  "description": "API for Latt platform",
   "author": "Fyodor L.",
   "homepage": "https://github.com/latt-dev",
   "license": "MIT",
