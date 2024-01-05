@@ -2,7 +2,7 @@
 [![Generic badge](https://img.shields.io/badge/version-0.1.0-green.svg)](https://shields.io/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-**Latt API** is a Nest.js application providing RESTful API for the corresponding web clients (customer UI, admin UI). It's hooked to PostgreSQL database for data persistence  via TypeORM.
+**Latt API** is a Nest.js appl ication providing RESTful API for the corresponding web clients (customer UI, admin UI). It's hooked to PostgreSQL database for data persistence  via TypeORM.
 
 ## Quick Start
 
