@@ -8,7 +8,7 @@
 
 1. Install dependencies with `npm install` (requires Node v18+, see `.nvmrc` if you use NVM)
 2. Add `.env` file with necessary [environment variables](#obfuscated-environment-variables) to the root folder when working with the app locally, or configure the corresponding parameters at you cloud provider's console
-2. Run `docker compose up` to start Postgres DB instance<sup>1</sup>
+2. Run `docker  compose up` to start Postgres DB instance<sup>1</sup>
 3. `npm run start:dev`
 
 ## Project Structure
